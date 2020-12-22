@@ -4,7 +4,17 @@ In SwiftUI, presenting overlay views using `.overlay` (or `.sheet`, etc.) requir
 
 ```swift
 showOverlay {
-    Text("My overlay")
+    MyOverlay()
+}
+
+struct MyOverlay: View {
+    @Environment(\.dismissOverlay) var dismissOverlay
+
+    var body: some View {
+        Button(action: self.dismissOverlay) {
+            Text("Dismiss overlay")
+        }
+    }
 }
 ```
 
